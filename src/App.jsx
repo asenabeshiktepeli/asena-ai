@@ -2,7 +2,21 @@ import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
+import LinkSection from './components/LinkSection'
+import Divider from './components/Divider'
 import './App.css'
+
+const docLinks = [
+  { href: 'https://vite.dev/', icon: viteLogo, label: 'Explore Vite', iconType: 'img', iconClassName: 'logo' },
+  { href: 'https://react.dev/', icon: reactLogo, label: 'Learn more', iconType: 'img' },
+]
+
+const socialLinks = [
+  { href: 'https://github.com/vitejs/vite', icon: '/icons.svg#github-icon', label: 'GitHub' },
+  { href: 'https://chat.vite.dev/', icon: '/icons.svg#discord-icon', label: 'Discord' },
+  { href: 'https://x.com/vite_js', icon: '/icons.svg#x-icon', label: 'X.com' },
+  { href: 'https://bsky.app/profile/vite.dev', icon: '/icons.svg#bluesky-icon', label: 'Bluesky' },
+]
 
 function App() {
   const [count, setCount] = useState(0)
@@ -30,90 +44,26 @@ function App() {
         </button>
       </section>
 
-      <div className="ticks"></div>
+      <Divider />
 
       <section id="next-steps">
-        <div id="docs">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#documentation-icon"></use>
-          </svg>
-          <h2>Documentation</h2>
-          <p>Your questions, answered</p>
-          <ul>
-            <li>
-              <a href="https://vite.dev/" target="_blank">
-                <img className="logo" src={viteLogo} alt="" />
-                Explore Vite
-              </a>
-            </li>
-            <li>
-              <a href="https://react.dev/" target="_blank">
-                <img className="button-icon" src={reactLogo} alt="" />
-                Learn more
-              </a>
-            </li>
-          </ul>
-        </div>
-        <div id="social">
-          <svg className="icon" role="presentation" aria-hidden="true">
-            <use href="/icons.svg#social-icon"></use>
-          </svg>
-          <h2>Connect with us</h2>
-          <p>Join the Vite community</p>
-          <ul>
-            <li>
-              <a href="https://github.com/vitejs/vite" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#github-icon"></use>
-                </svg>
-                GitHub
-              </a>
-            </li>
-            <li>
-              <a href="https://chat.vite.dev/" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#discord-icon"></use>
-                </svg>
-                Discord
-              </a>
-            </li>
-            <li>
-              <a href="https://x.com/vite_js" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#x-icon"></use>
-                </svg>
-                X.com
-              </a>
-            </li>
-            <li>
-              <a href="https://bsky.app/profile/vite.dev" target="_blank">
-                <svg
-                  className="button-icon"
-                  role="presentation"
-                  aria-hidden="true"
-                >
-                  <use href="/icons.svg#bluesky-icon"></use>
-                </svg>
-                Bluesky
-              </a>
-            </li>
-          </ul>
-        </div>
+        <LinkSection
+          id="docs"
+          iconHref="/icons.svg#documentation-icon"
+          title="Documentation"
+          subtitle="Your questions, answered"
+          links={docLinks}
+        />
+        <LinkSection
+          id="social"
+          iconHref="/icons.svg#social-icon"
+          title="Connect with us"
+          subtitle="Join the Vite community"
+          links={socialLinks}
+        />
       </section>
 
-      <div className="ticks"></div>
+      <Divider />
       <section id="spacer"></section>
     </>
   )
